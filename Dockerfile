@@ -4,6 +4,8 @@ MAINTAINER Derek Vance <dvance@cerb-tech.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ "America/Detroit"
 
+VOLUME "/data"
+
 RUN \
   apt-get update && apt-get -y install curl ;\ 
   echo "Acquire::Languages \" none\";\nAPT::Install-Recommends \"true\";\nAPT::Install-Suggests \"false\";" > /etc/apt/apt.conf ;\
