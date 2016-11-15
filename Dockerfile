@@ -11,7 +11,7 @@ RUN echo "Acquire::Languages \" none\";\nAPT::Install-Recommends \"true\";\nAPT:
 RUN echo $TZ > /etc/timezone && dpkg-reconfigure tzdata
 RUN echo "deb http://repo.powerdns.com/debian jessie-auth-40 main" > /etc/apt/sources.list.d/pdns.list
 RUN echo "Package: pdns-*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > /etc/apt/preferences.d/pdns
-RUN curl https://repo.powerdns.com/CBC8B383-pub.asc | apt-key add - &&
+RUN curl https://repo.powerdns.com/CBC8B383-pub.asc | apt-key add -
 RUN apt-get update && apt-get -y install pdns-server pdns-backend-mysql pdns-backend-sqlite3
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
   
